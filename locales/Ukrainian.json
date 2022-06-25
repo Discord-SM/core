@@ -1,0 +1,63 @@
+{
+    "requested": "Запитав: {uTag}",
+    "onlyForOwners": "Ця команда призначена лише для власників проекту!",
+    "onlyForAdmins": "Ця команда призначена лише для адміністрації проекту!",
+    "commandCooldown": "Перед тим, як використовувати команду **{cName}**, Вам необхідно почекати **{cTime}**!",
+    "invalidVersionCore": "Для запуску модуля '{name}' оновіть ядро з версії '{version}' на потрібну '{require}'!",
+    "featureAlreadyRegistered": "Функцію '{feature}' вже зареєстровано!",
+    "featureNotRegistered": "Функцію '{feature}' не знайдено!",
+    "executeError": "{e} | Під час виконання команди **{cmd}** сталася непередбачена помилка!",
+
+    "commands": {
+        "server": {
+            "info": "Дозволяє переглядати інформацію про сервери",
+
+            "failFetchData": "Не вдалося отримати інформацію про сервер!",
+            "notPlayers": "На сервері немає гравців...",
+            "unknownName": "Не визначений",
+            "unknownTime": "Не визначений",
+            "unknownScore": "Не визначено",
+            "unknownDescription": "Не визначений",
+            "unknownSteamID": "Не визначений",
+
+            "playersList": "**Нікнейм:** {nickname} - **Час гри:** {time} - **Вбивств:** {score}\n",
+
+            "embed": {
+                "title": "{server} - Коротка інформація",
+
+                "fields": {
+                    "map": "Мапа:",
+                    "description": "Опис:",
+                    "id": "SteamID:",
+                    "players": "Кількість гравців:",
+                    "protected": "Захищений паролем:",
+                    "maxPlayers": "Кількість слотів:",
+                    "playersList": "Список гравців:"
+                }
+            }
+        }
+    },
+    
+    "modules": {
+        "moduleInitialized": "Модуль '{name}' успішно запущено!",
+        
+        "invalidFile": "Файл '{file}' не є повноцінним модулем DiscordSM!",
+        "invalidFolder": "Перейменуйте папку '{old}' на '{new}'!",
+        "invalidExecFile": "Папка '{folder}' не має файлу 'index.js', що виконується, необхідного для модулів DiscordSM!",
+        "invalidSettings": "Папка '{folder}' не має файлу налаштувань 'settings.json', необхідного для модулів DiscordSM!",
+        "invalidModule": "Модуль '{name}' не може бути запущений через неправильну структуру інтерфейсу!"
+    },
+
+    "permissions": {
+        "messages": "У мене недостатньо прав для надсилання повідомлень на сервері!",
+        "embeds": "У мене недостатньо прав для надсилання embed-повідомлень на сервері!",
+
+        "missingUser": "{user}, у Вас недостатньо прав для використання цієї команди!",
+        "missingClient": "У мене недостатньо прав для виконання цієї команди!"
+    },
+
+    "status": {
+        "true": "Так",
+        "false": "Ні"
+    }
+}
