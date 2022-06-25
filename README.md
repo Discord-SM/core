@@ -1,0 +1,2 @@
+# core
+DiscordSM Core
