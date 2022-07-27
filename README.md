@@ -2,7 +2,7 @@
     DiscordSM | Core
 </h2>
 <h2 align="center">
-    Current version: 0.3.0
+    Current version: 0.4.0
 </h2>
 <p align="center">
     Core of the DiscordSM bot
