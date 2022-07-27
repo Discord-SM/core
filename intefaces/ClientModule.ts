@@ -1,7 +1,5 @@
 import DiscordSM from '../classes/Client';
 
-import ClientCommand from './ClientCommand';
-
 export default interface ClientModule {
     name: string;
     author: string;
@@ -11,10 +9,12 @@ export default interface ClientModule {
     requires: {
         core: string;
     }
-
-    commands: Array<ClientCommand> | null;
     
     init?: ModuleInit;
+    initEvents?: ModuleInitEvents;
+    initCommands?: ModuleInitCommands;
 }
 
 type ModuleInit = (client?: DiscordSM<any>) => any | Promise<any>;
+type ModuleInitEvents = (client?: DiscordSM<any>) => any | Promise<any>;
+type ModuleInitCommands = (client?: DiscordSM<any>) => any | Promise<any>;

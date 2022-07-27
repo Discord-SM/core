@@ -1,18 +1,16 @@
 {
-    "requested": "Requested: {uTag}",
-    "onlyForOwners": "This command is for project owners only!",
-    "onlyForAdmins": "This command is for project administration only!",
-    "commandCooldown": "You must wait **{cTime}** before using the **{cName}** command!",
-    "invalidVersionCore": "To run the '{name}' module, update the kernel from '{version}' to the required '{require}'!",
-    "featureAlreadyRegistered": "Feature '{feature}' is already registered!",
-    "featureNotRegistered": "Feature '{feature}' not found!",
-    "executeError": "{e} | An unexpected error occurred while executing the **{cmd}** command!",
+    "requested": "Requested: {tag}",
+    "onlyForVoice": "{e} | The **{cmd}** command is only available to users in the voice channel!",
+    "onlyForOwners": "{e} | The **{cmd}** command is only available to project owners!",
+    "onlyForAdmins": "{e} | The **{cmd}** command is only available to project administrators!",
+    "commandCooldown": "{e} | Please wait **{time}** before using the **{cmd}** command!",
+    "commandExecuteError": "{e} | An unexpected error occurred while executing the **{cmd}** command!",
 
     "commands": {
         "server": {
             "info": "Allows you to view server information",
 
-            "failFetchData": "Failed to get server information!",
+            "failFetchData": "{e} | Failed to get server information!",
             "notPlayers": "There are no players on the server...",
             "unknownName": "Not determined",
             "unknownTime": "Not determined",
@@ -20,7 +18,7 @@
             "unknownDescription": "Not determined",
             "unknownSteamID": "Not determined",
 
-            "playersList": "**NickName:** {nickname} - **Game Time:** {time} - **Kills:** {score}\n",
+            "playersList": "👤 {nickname} | ⌛ {time} | ☠️ {score}\n",
 
             "embed": {
                 "title": "{server} - Short Information",
@@ -38,7 +36,13 @@
         }
     },
 
+    "features": {
+        "notRegistered":    "Feature '{feature}' is not registered!",
+        "alreadyRegistered":    "Feature '{feature}' is already registered!"
+    },
+
     "modules": {
+        "oldCore":  "Update DiscordSM core '{currentVersion}' => '{requireVersion}' to run module '{module}'!",
         "moduleInitialized": "Module '{name}' launched successfully!",
         
         "invalidFile": "The file '{file}' is not a full DiscordSM module!",
@@ -52,8 +56,8 @@
         "messages": "I don't have enough permissions to send messages on the server!",
         "embeds": "I don't have enough permissions to send embed messages on the server!",
 
-        "missingUser": "{user}, you do not have sufficient permissions to use this command!",
-        "missingClient": "I don't have enough permissions to run this command!"
+        "missingUser": "{e} | {user}, you do not have sufficient permissions to use this command!",
+        "missingClient": "{e} | I don't have enough permissions to run this command!"
     },
 
     "status": {

@@ -8,6 +8,7 @@ export default interface ClientCommand {
     name: string;
     description: string;
     cooldown?: string;
+    onlyVoice?: boolean;
     onlyOwners?: boolean;
     onlyAdmins?: boolean;
 

@@ -28,8 +28,9 @@ export default {
                 if(!member.permissions.has(clientCommand.permissions.user)) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.permissions.missingUser.replace('{user}', member.toString()) }, null)] })
             }
 
-            if(clientCommand.onlyOwners && !client.configs.main.owners.includes(member.id)) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.onlyForOwners }, null)] });
-            if(clientCommand.onlyAdmins && !client.configs.main.admins.includes(member.id)) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.onlyForAdmins }, null)] });
+            if(clientCommand?.onlyOwners && !client.configs.main.owners.includes(member.id)) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.onlyForOwners.replace('{cmd}', clientCommand.name) }, null)] });
+            if(clientCommand?.onlyAdmins && !client.configs.main.admins.includes(member.id)) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.onlyForAdmins.replace('{cmd}', clientCommand.name) }, null)] });
+            if(clientCommand?.onlyVoice && !member.voice.channel) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.onlyForVoice.replace('{cmd}', clientCommand.name) }, null)] });
 
             const interactionOptionsData = interaction.options.data[0];
             const subCommand: ClientSubCommand = { group: null, name: null, options: null }
@@ -48,7 +49,7 @@ export default {
             if(clientCommand.cooldown) {
                 const commandCooldown = ms(clientCommand.cooldown);
 
-                if(client.cooldowns.has(`${clientCommand.name}.${member.id}`)) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.commandCooldown.replace('{cName}', clientCommand.name).replace('{cTime}', ms(client.cooldowns.get(`${clientCommand.name}.${member.id}`) - Date.now()).toString()) }, null)] })
+                if(client.cooldowns.has(`${clientCommand.name}.${member.id}`)) return interaction.reply({ embeds: [client.managers.utils.buildEmbed({ description: client.phrases.commandCooldown.replace('{time}', ms(client.cooldowns.get(`${clientCommand.name}.${member.id}`) - Date.now()).toString()).replace('{cmd}', clientCommand.name) }, null)] })
 
                 client.cooldowns.set(`${clientCommand.name}.${member.id}`, Date.now() + commandCooldown);
                 clientCommand.run(client, interaction, subCommand.name ? subCommand : null);

@@ -112,7 +112,7 @@ export default class UtilsManager {
         if(options?.thumbnail) embed.setThumbnail(options.thumbnail.url);
 
         if(options?.description === '-') embed.data.description = null;
-        else embed.setDescription(options.description.replace('{e}', '❌').replace('{s}', '✔').replace('{w}', '⌛').replace('{i}', '❗'));
+        else embed.setDescription(options.description.replace('{e}', this.client.configs.main?.emojis?.error || '❌').replace('{s}', this.client.configs.main?.emojis?.success || '✔').replace('{w}', this.client.configs.main?.emojis?.waiting || '⌛').replace('{i}', this.client.configs.main?.emojis?.info || '❗'));
 
         if(options.fields) {
             options.fields.forEach(field => {
@@ -121,7 +121,7 @@ export default class UtilsManager {
         }
         
         if(footer && options?.footer) embed.setFooter({ text: options.footer.text, iconURL: options.footer.icon_url });
-        else if(member && footer && !options?.footer) embed.setFooter({ text: this.client.phrases.requested.replace('{uTag}', member.user.tag), iconURL: member.user.avatarURL() });
+        else if(member && footer && !options?.footer) embed.setFooter({ text: this.client.phrases.requested.replace('{tag}', member.user.tag), iconURL: member.user.avatarURL() });
 
         if(timestamp) embed.setTimestamp();
 

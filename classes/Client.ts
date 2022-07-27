@@ -34,7 +34,6 @@ export default class DiscordSM<T> extends Client {
     }
 
     public cooldowns: Collection<string, number> = new Collection();
-    public modules: Collection<string, ClientModule> = new Collection();
     public commands: Collection<string, ClientCommand> = new Collection();
     public phrases: typeof English = require(`../locales/${this.configs.locales.find(locale => locale.tag === this.configs.main.defaultLocale)?.name || 'English'}.json`);
 
@@ -87,7 +86,7 @@ export default class DiscordSM<T> extends Client {
      * @param {any} value Module Data
     */
     public registerFeature(key: string, value: T): void {
-        if(this.getFeature(key)) return this.managers.logger.error(this.phrases.featureAlreadyRegistered.replace('{feature}', key));
+        if(this.getFeature(key)) return this.managers.logger.warn(this.phrases.features.alreadyRegistered.replace('{feature}', key));
 
         this.features[key] = value;
     }
@@ -109,7 +108,7 @@ export default class DiscordSM<T> extends Client {
      * @param key Module Key
     */
     public unregisterFeature(key: string): void {
-        if(!this.getFeature(key)) return this.managers.logger.error(this.phrases.featureNotRegistered.replace('{feature}', key));
+        if(!this.getFeature(key)) return this.managers.logger.warn(this.phrases.features.notRegistered.replace('{feature}', key));
 
         delete this.features[key];
     }

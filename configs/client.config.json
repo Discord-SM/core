@@ -1,7 +1,15 @@
 {
     "token": "YOUR_BOT_TOKEN_HERE",
+
     "defaultLocale": "en",
     "statusChangeInterval": 15000,
+
+    "emojis": {
+        "info": "❗",
+        "error": "❌",
+        "success": "✅",
+        "waiting": "⌛"
+    },
 
     "owners": [],
     "admins": []
